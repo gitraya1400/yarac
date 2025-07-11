@@ -1,0 +1,327 @@
+/* =================================================================== */
+/* CSS FINAL UNTUK ADMIN DASHBOARD (SINGLE PAGE)                      */
+/* =================================================================== */
+
+/* Layout Utama */
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--light-gray);
+}
+
+.admin-sidebar {
+  width: 260px;
+  background-color: var(--white);
+  box-shadow: var(--shadow-medium);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-main {
+  margin-left: 260px;
+  flex-grow: 1;
+  padding: 40px;
+}
+
+/* Header & Navigasi Sidebar */
+.sidebar-header {
+  padding: 25px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.sidebar-header h3 {
+  font-family: 'League Spartan', sans-serif;
+  color: var(--forest-green);
+  font-size: 1.8rem;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 25px;
+  color: var(--dark-gray);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  border-left: 4px solid transparent;
+}
+
+.sidebar-nav a:hover {
+  background-color: var(--light-gray);
+  color: var(--forest-green);
+  border-left-color: var(--moss-green);
+}
+
+.sidebar-nav a.active {
+  background-color: var(--forest-green);
+  color: var(--white);
+  border-left-color: var(--lichen);
+}
+
+.sidebar-nav a i {
+  width: 20px;
+  text-align: center;
+}
+
+/* Konten Utama */
+.admin-section {
+  display: none;
+  animation: fadeIn 0.4s ease-in-out;
+}
+.admin-section.active {
+  display: block;
+}
+
+.section-header {
+    border-bottom: 2px solid var(--light-gray);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+.section-header h1 {
+    color: var(--forest-green);
+}
+
+/* CSS for Add New Button & Modal */
+.btn-add-new {
+    background-color: var(--success);
+    color: white;
+    margin-top: 10px;
+    float: right;
+    font-weight: 600;
+}
+
+.btn-add-new:hover {
+    background-color: #25a25a;
+}
+
+.admin-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 8% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 550px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s;
+}
+
+.close-modal {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#product-form .form-group {
+    margin-bottom: 15px;
+}
+
+#product-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+#product-form input,
+#product-form select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+#product-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+#product-form .btn-action {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    background-color: var(--forest-green);
+}
+#product-form .btn-action:hover {
+    background-color: var(--olive-drab);
+}
+/* Kartu Statistik */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.stat-card {
+  background-color: var(--white);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-light);
+}
+
+.stat-card h3 {
+  font-size: 2.5rem;
+  color: var(--forest-green);
+}
+
+.stat-card p {
+  color: var(--moss-green);
+  font-weight: 500;
+}
+
+/* Tabel */
+.table-container {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+}
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.admin-table th, .admin-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--light-gray);
+}
+.admin-table th {
+  font-family: 'League Spartan', sans-serif;
+  color: var(--olive-drab);
+}
+.table-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Tombol */
+.btn-action {
+  background-color: var(--lichen);
+  color: var(--dark-gray);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color var(--transition-fast);
+}
+.btn-action:hover {
+    background-color: var(--moss-green);
+    color: var(--white);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* CSS untuk Form Iklan yang Baru */
+#ad-form .image-preview-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#ad-form .image-preview {
+    width: 100%;
+    height: 200px;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    margin-bottom: 15px;
+}
+
+#ad-form .image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#ad-form .image-preview-text {
+    position: absolute;
+    color: #999;
+    font-weight: 500;
+}
+
+#ad-form .image-preview img:not([src="assets/images/placeholder.jpg"]) + .image-preview-text {
+    display: none;
+}
+
+#ad-form input[type="file"] {
+    display: none; /* Sembunyikan input file asli */
+}
+
+#ad-form .btn-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--olive-drab);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+#ad-form .btn-upload:hover {
+    background-color: var(--forest-green);
+}
+
+/* Wadah untuk area preview */
+.admin-modal .image-preview {
+    width: 100%;
+    height: 250px; /* Menetapkan tinggi area preview */
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; /* Paling penting: menyembunyikan bagian gambar yang keluar */
+    background-color: #f8f8f8;
+    margin-bottom: 15px;
+}
+
+/* Gambar di dalam area preview */
+.admin-modal .image-preview img {
+    width: 100%;
+    height: 100%;
+    /* Memastikan gambar mengisi area tanpa merusak rasio */
+    object-fit: cover; 
+}

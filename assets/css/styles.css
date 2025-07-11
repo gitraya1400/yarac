@@ -1,0 +1,1812 @@
+/* Enhanced Yarac Fashion Store Styles with Forest Green Palette */
+
+/* Import Fonts */
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Forest Green Color Palette */
+  --forest-green: #2b3e34;
+  --olive-drab: #546a50;
+  --moss-green: #7e8a6d;
+  --cypress: #3f4e40;
+  --lichen: #b5b89b;
+
+  /* Additional colors */
+  --white: #ffffff;
+  --light-gray: #f8f9fa;
+  --dark-gray: #333333;
+  --success: #27ae60;
+  --error: #e74c3c;
+  --warning: #f39c12;
+
+  /* Shadows */
+  --shadow-light: 0 2px 10px rgba(43, 62, 52, 0.1);
+  --shadow-medium: 0 8px 25px rgba(43, 62, 52, 0.15);
+  --shadow-heavy: 0 15px 35px rgba(43, 62, 52, 0.2);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: var(--dark-gray);
+  overflow-x: hidden;
+  background: var(--white);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--forest-green);
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 2rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+
+/* Enhanced Navigation */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 20px 40px; /* BESAR */
+    z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scrolled {
+  top: 10px;
+  transform: translateX(-50%) scale(0.95);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: var(--shadow-heavy);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+/* Enhanced Navigation Link Styles */
+.nav-links a {
+  text-decoration: none;
+  color: var(--forest-green);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-family: "League Spartan", sans-serif;
+  font-weight: bolder;
+  transition: all var(--transition-medium);
+  position: relative;
+  padding: 10px 0; /* Memberi sedikit ruang vertikal */
+}
+
+/* Garis bawah untuk efek hover dan penanda aktif */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0; /* Posisi garis di bagian bawah */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px; /* Membuat garis lebih tebal */
+  background: linear-gradient(90deg, var(--olive-drab), var(--moss-green)); /* Gradient keren */
+  border-radius: 2px;
+  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transisi lebih halus */
+}
+
+/* Efek saat kursor diarahkan ke link */
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: var(--olive-drab);
+  transform: translateY(-2px); /* Sedikit terangkat saat di-hover */
+}
+
+/* Gaya untuk link yang sedang aktif */
+.nav-links a.active {
+  color: var(--olive-drab); /* Warna teks untuk link aktif */
+}
+
+.nav-links a.active::after {
+  width: 100%; /* Membuat garis bawah selalu terlihat untuk link aktif */
+}
+.nav-logo img {
+  height: 60px;
+  filter: brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1000%) hue-rotate(120deg);
+  transition: transform var(--transition-medium);
+}
+
+.nav-logo img:hover {
+  transform: scale(2.05);
+}
+
+.nav-auth {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.sign-in-btn {
+  background: var(--forest-green);
+  color: white !important;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all var(--transition-medium);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sign-in-btn:hover {
+  background: var(--olive-drab);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.sign-in-btn i {
+  font-size: 18px;
+}
+
+/* Enhanced Cart Icon */
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 50%;
+  transition: all var(--transition-medium);
+  background: rgba(43, 62, 52, 0.1);
+}
+
+.cart-icon:hover {
+  background: rgba(43, 62, 52, 0.2);
+  transform: scale(1.1);
+}
+
+.cart-icon i {
+  font-size: 20px;
+  color: var(--forest-green);
+}
+
+.cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--error);
+  color: white;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  transform: scale(0);
+  transition: transform var(--transition-medium);
+}
+
+.cart-count.show {
+  transform: scale(1);
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  60%,
+  100% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.2);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+}
+
+/* Enhanced Cart Dropdown */
+.cart-dropdown {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 380px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow-heavy);
+  z-index: 999;
+  transform: translateY(-20px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-medium);
+  border: 1px solid rgba(43, 62, 52, 0.1);
+}
+
+.cart-dropdown.show {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  border-bottom: 1px solid rgba(43, 62, 52, 0.1);
+}
+
+.cart-header h3 {
+  color: var(--forest-green);
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.close-cart {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--moss-green);
+  transition: color var(--transition-fast);
+}
+
+.close-cart:hover {
+  color: var(--forest-green);
+}
+
+.cart-items {
+  max-height: 350px;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.empty-cart {
+  text-align: center;
+  color: var(--moss-green);
+  padding: 30px 0;
+  font-style: italic;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(43, 62, 52, 0.1);
+  transition: all var(--transition-fast);
+}
+
+.cart-item:hover {
+  background: rgba(43, 62, 52, 0.02);
+  border-radius: 10px;
+  padding: 15px 10px;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-name {
+  font-weight: 600;
+  color: var(--forest-green);
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.cart-item-price {
+  color: var(--olive-drab);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.cart-item-quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.quantity-btn {
+  background: var(--light-gray);
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.quantity-btn:hover {
+  background: var(--lichen);
+  transform: scale(1.1);
+}
+
+.remove-item {
+  background: var(--error);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.remove-item:hover {
+  background: #c0392b;
+  transform: translateY(-1px);
+}
+
+.cart-footer {
+  padding: 25px;
+  border-top: 1px solid rgba(43, 62, 52, 0.1);
+  background: rgba(43, 62, 52, 0.02);
+  border-radius: 0 0 20px 20px;
+}
+
+.cart-total {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--forest-green);
+  font-weight: 700;
+}
+
+.btn-checkout {
+  width: 100%;
+  background: var(--forest-green);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-medium);
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.btn-checkout:hover {
+  background: var(--olive-drab);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Enhanced Hero Section */
+.hero {
+  min-height: 100vh;
+  background-image: url('../images/background.png');
+  background-size: cover; /* Memastikan gambar menutupi seluruh area */
+  background-position: center; /* Memusatkan gambar */
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  padding-top: 100px;
+  overflow: hidden;
+}
+
+.hero-grid-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  gap: 0px;
+}
+
+/* Penataan Kolom Kiri & Kanan */
+.hero-left-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 80vh;
+}
+
+.hero-right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Mendorong grup atas dan bawah ke ujung */
+  height: 80vh;
+  /* Properti lainnya tetap sama */
+}
+
+/* [NEW] Style untuk grup baru */
+.proud-section-group {
+    background-color: var(--dark-gray); /* Latar belakang hitam */
+    color: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+}
+
+/* Wadah utama untuk slider */
+.ad-slider {
+  position: relative;
+  width: 100%;
+  max-width: 650px; /* Lebar slider di tengah */
+  height: 550px;     /* Tinggi slider disesuaikan */
+  margin-bottom: 40px;
+}
+
+/* Setiap kartu iklan */
+.ad-slide {
+  position: absolute;
+  width: 100%;
+  height: 85%; /* Tinggi kartu tidak 100% agar ada ruang gerak */
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-heavy);
+  transition: transform var(--transition-medium) ease-out, opacity var(--transition-medium) ease-out;
+  cursor: pointer;
+  background-color: #ccc;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.ad-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* [FIX] Logika Tumpukan dari Bawah ke Atas dengan Jarak */
+.ad-slide:nth-child(1) {
+  /* Kartu paling atas (paling belakang) */
+  transform: translateY(-27%) scale(0.9); /* Digeser ke atas */
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.ad-slide:nth-child(2) {
+  /* Kartu di tengah */
+  transform: translateY(0) scale(0.95); /* Posisi tengah sebagai acuan */
+  z-index: 2;
+  opacity: 0.85;
+}
+
+.ad-slide:nth-child(3) {
+  /* Kartu paling bawah (paling depan) */
+  transform: translateY(27%) scale(1); /* Digeser ke bawah */
+  z-index: 3;
+}
+
+.ad-slide:nth-child(n+4) {
+  display: none;
+}
+
+/* Efek saat kursor diarahkan ke kartu */
+.ad-slide:hover {
+  transform: scale(1.1) rotateY(-8deg); /* Membesar dan sedikit berputar */
+  z-index: 4;
+  opacity: 1;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3); /* Tambahkan bayangan untuk efek 3D */
+}
+
+/* Tombol Filter (tetap di bawah slider) */
+.hero-filters {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Penataan Konten di Kolom Kanan */
+/* Penataan Konten di Kolom Kanan */
+.proud-text {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 6rem;
+  font-weight: 900;
+  line-height: 1;
+  text-align: left;
+  width: 100%;
+  color: var(--white);
+}
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  border-top: 1px solid var(--cypress); /* Menggunakan variabel --cypress */
+  padding-top: 20px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.feature-item i {
+  font-size: 1.5rem;
+  color: var(--lichen); /* Menggunakan variabel --lichen */
+}
+
+.feature-item span {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+
+/* Enhanced Hero Filters */
+.hero-filters {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px; /* Jarak dari teks "PROUD" */
+  width: 100%;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Sesuaikan gaya tombol filter untuk latar belakang gelap */
+.filter-btn {
+  background: transparent; /* Latar belakang transparan */
+  border: 2px solid var(--lichen); /* Garis tepi menggunakan warna --lichen */
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-medium);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: var(--white); /* Teks berwarna putih */
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--lichen); /* Latar saat aktif/hover menggunakan warna --lichen */
+  color: var(--dark-gray); /* Teks menjadi gelap agar kontras */
+  border-color: var(--lichen);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-light);
+}
+
+.filter-btn span {
+    font-size: 12px;
+}
+
+/* Enhanced Featured Products */
+.featured-products {
+  padding: 120px 0;
+  background: var(--light-gray);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 80px;
+  color: var(--forest-green);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--olive-drab), var(--moss-green));
+  border-radius: 2px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+/* Enhanced Product Cards */
+.product-card {
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+  transition: all var(--transition-medium);
+  cursor: pointer;
+  position: relative;
+  border: 1px solid rgba(43, 62, 52, 0.05);
+}
+
+.product-card:hover {
+  transform: translateY(-15px);
+  box-shadow: var(--shadow-heavy);
+  border-color: rgba(43, 62, 52, 0.1);
+}
+
+.product-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-info {
+  padding: 30px;
+}
+
+.product-category {
+  font-size: 0.9rem;
+  color: var(--olive-drab);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.product-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--forest-green);
+  line-height: 1.3;
+}
+
+.product-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--olive-drab);
+  margin-bottom: 20px;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  color: #ffd700;
+  font-size: 16px;
+}
+
+.star.empty {
+  color: #ddd;
+}
+
+.rating-text {
+  font-size: 14px;
+  color: var(--moss-green);
+}
+
+.product-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-add-cart {
+  flex: 1;
+  background: var(--forest-green);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 12px;
+  font-family: "League Spartan", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-medium);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-add-cart:hover {
+  background: var(--olive-drab);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-quick-view {
+  background: transparent;
+  color: var(--forest-green);
+  border: 2px solid var(--forest-green);
+  padding: 15px 20px;
+  border-radius: 12px;
+  font-family: "League Spartan", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-medium);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-quick-view:hover {
+  background: var(--forest-green);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.view-all {
+  text-align: center;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--forest-green);
+  color: white;
+  padding: 20px 50px;
+  border-radius: 35px;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: all var(--transition-medium);
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "League Spartan", sans-serif;
+}
+
+.btn-primary:hover {
+  background: var(--olive-drab);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Enhanced About Section with Colors */
+/* =================================================================== */
+/* CSS BARU UNTUK ABOUT US (DESAIN MODERN DENGAN KONTEN YARAC)        */
+/* =================================================================== */
+
+.about-section-modern {
+  background-color: var(--forest-green);
+  color: var(--white);
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.about-modern-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.about-modern-title {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 30px;
+  line-height: 1.1;
+}
+
+.about-modern-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+}
+
+.about-modern-image {
+  width: 150%;
+  border-radius: 20px;
+  box-shadow: var(--shadow-heavy);
+}
+
+.why-choose-us h3 {
+  font-size: 2.5rem;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.reason-item {
+  border: 2px solid var(--cypress);
+  padding: 30px;
+  border-radius: 20px;
+  transition: var(--transition-medium);
+}
+
+.reason-item:hover {
+  border-color: var(--lichen);
+  transform: translateY(-10px);
+}
+
+.reason-number {
+  display: block;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--lichen);
+  line-height: 1;
+}
+
+.reason-title {
+  font-size: 1.8rem;
+  color: var(--white);
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.reason-desc {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.value-card {
+  padding: 40px 30px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  transition: all var(--transition-medium);
+  border: 1px solid rgba(43, 62, 52, 0.1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.value-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--olive-drab), var(--moss-green), var(--lichen));
+}
+
+.value-card:hover {
+  transform: translateY(-15px);
+  box-shadow: var(--shadow-heavy);
+  background: white;
+  border-color: var(--olive-drab);
+}
+
+.value-card i {
+  font-size: 3.5rem;
+  color: var(--olive-drab);
+  margin-bottom: 25px;
+  transition: all var(--transition-medium);
+}
+
+.value-card:hover i {
+  color: var(--forest-green);
+  transform: scale(1.1);
+}
+
+.value-card h4 {
+  font-size: 1.6rem;
+  color: var(--forest-green);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.value-card p {
+  color: var(--moss-green);
+  line-height: 1.6;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Enhanced Categories */
+.categories {
+  padding: 120px 0;
+  background: var(--light-gray);
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 50px;
+}
+
+.category-card {
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-medium);
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+  padding: 60px 30px;
+  border: 1px solid rgba(43, 62, 52, 0.05);
+}
+
+.category-card:hover {
+  transform: translateY(-15px);
+  box-shadow: var(--shadow-heavy);
+}
+
+.category-card h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: var(--forest-green);
+}
+
+.category-card p {
+  color: var(--moss-green);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Enhanced Newsletter - Removed rotation animation */
+.newsletter {
+  padding: 100px 0;
+  background: linear-gradient(135deg, var(--olive-drab) 0%, var(--moss-green) 100%);
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.newsletter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="newsletter-pattern" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23newsletter-pattern)"/></svg>');
+  opacity: 0.3;
+}
+
+.newsletter .container {
+  position: relative;
+  z-index: 1;
+}
+
+.newsletter h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.newsletter p {
+  font-size: 1.3rem;
+  margin-bottom: 50px;
+  opacity: 0.9;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 18px 30px;
+  border: none;
+  border-radius: 35px;
+  font-size: 1rem;
+  outline: none;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.newsletter-form button {
+  background: var(--forest-green);
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 35px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-medium);
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.newsletter-form button:hover {
+  background: var(--cypress);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Enhanced Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(43, 62, 52, 0.8);
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 3% auto;
+  padding: 0;
+  border-radius: 25px;
+  width: 90%;
+  max-width: 900px;
+  position: relative;
+  animation: slideIn 0.4s ease;
+  box-shadow: var(--shadow-heavy);
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: var(--moss-green);
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1;
+  transition: color var(--transition-fast);
+}
+
+.close:hover {
+  color: var(--forest-green);
+}
+
+.modal-body {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+}
+
+.modal-image {
+  flex: 1;
+}
+
+.modal-image img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.modal-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.modal-info h3 {
+  font-size: 2.2rem;
+  color: var(--forest-green);
+  margin: 0;
+}
+
+.modal-info .product-category {
+  font-size: 1rem;
+  color: var(--olive-drab);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.modal-info .product-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--olive-drab);
+}
+
+.modal-info .product-description {
+  color: var(--moss-green);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.size-selector,
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.size-selector label,
+.quantity-selector label {
+  font-weight: 600;
+  color: var(--forest-green);
+  min-width: 80px;
+}
+
+.size-selector select,
+.quantity-selector input {
+  padding: 12px 15px;
+  border: 2px solid rgba(43, 62, 52, 0.2);
+  border-radius: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.size-selector select:focus,
+.quantity-selector input:focus {
+  border-color: var(--olive-drab);
+}
+
+.btn-add-cart-modal {
+  background: var(--forest-green);
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 15px;
+  font-family: "League Spartan", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-medium);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.btn-add-cart-modal:hover {
+  background: var(--olive-drab);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Enhanced Footer */
+.footer {
+  background: var(--forest-green);
+  color: white;
+  padding: 80px 0 30px;
+  position: relative;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--lichen), transparent);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: var(--lichen);
+}
+
+.footer-section p {
+  margin-bottom: 20px;
+  opacity: 0.9;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  display: inline-block;
+}
+
+.footer-section ul li a:hover {
+  color: var(--lichen);
+  transform: translateX(8px);
+}
+
+/* Enhanced Social Media Icons */
+.wrapper {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  justify-content: flex-start;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  padding: 18px;
+  width: 60px;
+  height: 60px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: -50px;
+  font-size: 14px;
+  background: var(--lichen);
+  color: var(--forest-green);
+  padding: 8px 12px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  font-weight: 600;
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: var(--lichen);
+  bottom: -4px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+}
+
+.wrapper .icon:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover {
+  background: var(--lichen);
+  color: var(--forest-green);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
+
+.wrapper .icon span {
+  color: inherit;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+/* Profile Popup Enhanced */
+.profile-popup {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(43, 62, 52, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.profile-content {
+  background-color: white;
+  margin: 5% auto;
+  padding: 0;
+  border-radius: 25px;
+  width: 90%;
+  max-width: 700px;
+  position: relative;
+  animation: slideIn 0.4s ease;
+  box-shadow: var(--shadow-heavy);
+}
+
+.close-profile {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: var(--moss-green);
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1;
+  transition: color var(--transition-fast);
+}
+
+.close-profile:hover {
+  color: var(--forest-green);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 40px;
+  border-bottom: 1px solid rgba(43, 62, 52, 0.1);
+  background: linear-gradient(135deg, var(--light-gray), white);
+}
+
+.profile-header i {
+  font-size: 3rem;
+  color: var(--olive-drab);
+}
+
+.profile-header h3 {
+  color: var(--forest-green);
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.profile-body {
+  padding: 40px;
+}
+
+.profile-section {
+  margin-bottom: 40px;
+}
+
+.profile-section h4 {
+  color: var(--forest-green);
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.admin-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.admin-btn {
+  background: var(--forest-green);
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all var(--transition-medium);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.admin-btn:hover {
+  background: var(--olive-drab);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Notification Styles */
+.notification {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background: var(--forest-green);
+  color: white;
+  padding: 18px 30px;
+  border-radius: 12px;
+  z-index: 10000;
+  animation: slideInRight 0.4s ease;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow-medium);
+  border-left: 4px solid var(--lichen);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-container {
+    gap: 20px;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  .cart-dropdown {
+    width: calc(100vw - 40px);
+    right: 20px;
+    left: 20px;
+  }
+
+  .ad-slider {
+    height: 300px;
+    margin-bottom: 40px;
+  }
+
+  .hero-filters {
+    gap: 15px;
+  }
+
+  .filter-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .wrapper {
+    justify-content: center;
+  }
+
+  .modal-body {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .about-text {
+    padding: 40px 30px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px 20px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 50px;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin: 10% auto;
+  }
+
+  .ad-slider {
+    height: 250px;
+  }
+
+  .hero {
+    padding: 100px 0 60px;
+  }
+
+  .featured-products,
+  .about-section-modern,
+  .categories {
+    padding: 80px 0;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .profile-content {
+    width: 95%;
+  }
+
+  .profile-header,
+  .profile-body {
+    padding: 25px;
+  }
+
+  .admin-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .about-text {
+    padding: 30px 20px;
+  }
+}
+
+/* Loading States */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid var(--forest-green);
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+.mb-2 {
+  margin-bottom: 1rem;
+}
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+.mb-4 {
+  margin-bottom: 2rem;
+}
+
+.mt-1 {
+  margin-top: 0.5rem;
+}
+.mt-2 {
+  margin-top: 1rem;
+}
+.mt-3 {
+  margin-top: 1.5rem;
+}
+.mt-4 {
+  margin-top: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+.visible {
+  display: block;
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease;
+}
+
+/* TAMBAHKAN DI AKHIR FILE CSS ANDA */
+
+/* TAMBAHKAN DI AKHIR FILE CSS ANDA */
+
+.ad-card-label {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.6); /* Latar belakang semi-transparan */
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  backdrop-filter: blur(5px); /* Efek blur untuk latar belakang */
+  z-index: 10; /* Pastikan selalu di atas gambar */
+}
+/* Letakkan di bagian bawah file assets/css/styles.css */
+.product-card {
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.product-hidden {
+    transform: scale(0.9);
+    opacity: 0;
+    display: none; /* Sembunyikan sepenuhnya setelah animasi selesai */
+}
+/* CSS untuk efek loading logo */
+#loading-logo {
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%) scale(0);
+ opacity: 0;
+ z-index: 1000; /* Pastikan di atas semua elemen lain */
+ transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+body.loading #loading-logo {
+ transform: translate(-50%, -50%) scale(1);
+ opacity: 1;
+}
+
+#page-content {
+ opacity: 1;
+ transition: opacity 0.5s ease-in-out;
+}
+
+body.loading #page-content {
+ opacity: 0.5; /* Sedikit redup saat loading */
+}
