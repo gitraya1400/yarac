@@ -157,21 +157,28 @@ include 'includes/header.php';
     <div class="container">
         <h2 class="section-title">Shop by Category</h2>
         <div class="categories-grid">
-            <div class="category-card fade-in" data-category="shirts">
-                <i class="fas fa-tshirt" style="font-size: 3rem; color: var(--olive-drab); margin-bottom: 20px;"></i>
-                <h3>Shirts</h3>
-                <p>Koleksi kemeja terbaru untuk berbagai acara formal dan kasual</p>
-            </div>
-            <div class="category-card fade-in" data-category="casual">
-                <i class="fas fa-user-tie" style="font-size: 3rem; color: var(--olive-drab); margin-bottom: 20px;"></i>
-                <h3>Casual Wear</h3>
-                <p>Pakaian santai kekinian untuk gaya sehari-hari yang stylish</p>
-            </div>
-            <div class="category-card fade-in" data-category="formal">
-                <i class="fas fa-briefcase" style="font-size: 3rem; color: var(--olive-drab); margin-bottom: 20px;"></i>
-                <h3>Formal Wear</h3>
-                <p>Pakaian formal elegan untuk penampilan profesional</p>
-            </div>
+            <a href="products.php?category=shirts" class="category-card-link">
+                <div class="category-card fade-in" data-category="shirts">
+                    <i class="fas fa-tshirt" style="font-size: 3rem; color: var(--olive-drab); margin-bottom: 20px;"></i>
+                    <h3>Shirts</h3>
+                    <p>Koleksi kemeja terbaru untuk berbagai acara formal dan kasual</p>
+                </div>
+            </a>
+            <a href="products.php?category=casual" class="category-card-link">
+                <div class="category-card fade-in" data-category="casual">
+                    <i class="fas fa-user-tie" style="font-size: 3rem; color: var(--olive-drab); margin-bottom: 20px;"></i>
+                    <h3>Casual Wear</h3>
+                    <p>Pakaian santai kekinian untuk gaya sehari-hari yang stylish</p>
+                </div>
+            </a>
+            <a href="products.php?category=formal" class="category-card-link">
+                <div class="category-card fade-in" data-category="formal">
+                    <i class="fas fa-briefcase" style="font-size: 3rem; color: var(--olive-drab); margin-bottom: 20px;"></i>
+                    <h3>Formal Wear</h3>
+                    <p>Pakaian formal elegan untuk penampilan profesional</p>
+                </div>
+    </a>
+</div>
         </div>
     </div>
 </section>

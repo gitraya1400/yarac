@@ -18,7 +18,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <?php endif; ?>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="assets/images/Yarac LOgo.png" type="image/x-icon">
+    <link rel="icon" href="assets/images/Yarac Icon.png" type="image/x-icon">
     <meta name="description" content="Yarac Fashion Store - Koleksi fashion terbaru dengan kualitas premium">
     <meta name="keywords" content="fashion, clothing, style, yarac, baju, kemeja, jaket">
 </head>

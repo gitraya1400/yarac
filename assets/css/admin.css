@@ -325,3 +325,115 @@
     /* Memastikan gambar mengisi area tanpa merusak rasio */
     object-fit: cover; 
 }
+/* assets/css/admin.css */
+
+/* --- CSS BARU UNTUK SALES CHART --- */
+.chart-container {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    margin-top: 50px;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.chart-header h2 {
+    font-size: 1.5rem;
+    color: var(--forest-green);
+    margin: 0;
+}
+
+.chart-wrapper {
+    width: 100%;
+    height: 300px; /* Tinggi grafik */
+    display: flex;
+    justify-content: space-around; /* Memberi jarak antar bar */
+    align-items: flex-end; /* Membuat bar mulai dari bawah */
+    border-left: 2px solid #e0e0e0;
+    border-bottom: 2px solid #e0e0e0;
+    padding-left: 10px;
+    position: relative;
+}
+
+.chart-bar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end; /* Bar tumbuh ke atas */
+}
+
+.chart-bar {
+    width: 35px; /* Lebar setiap bar */
+    background: linear-gradient(to top, var(--olive-drab), var(--moss-green));
+    border-radius: 6px 6px 0 0;
+    position: relative;
+    transition: height 0.5s ease-out; /* Animasi saat load */
+    cursor: pointer;
+}
+
+.chart-bar:hover {
+    background: linear-gradient(to top, var(--forest-green), var(--olive-drab));
+}
+
+.chart-bar .tooltip {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--dark-gray);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+.chart-bar:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.chart-label {
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--moss-green);
+}
+/* assets/css/admin.css */
+
+.chart-filters {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-btn {
+    background-color: var(--light-gray);
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--dark-gray);
+}
+
+.filter-btn:hover {
+    background-color: var(--moss-green);
+    color: white;
+}
+
+.filter-btn.active {
+    background-color: var(--forest-green);
+    color: white;
+    border-color: var(--forest-green);
+}

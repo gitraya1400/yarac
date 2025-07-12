@@ -1,17 +1,4 @@
 <?php
-/**
- * ===================================================================
- * API untuk Membuat Pesanan Baru (Create Order)
- * ===================================================================
- * File ini bertanggung jawab untuk:
- * 1. Menerima data keranjang (cart) dan catatan (notes) dari pelanggan.
- * 2. Memvalidasi sesi pengguna untuk memastikan hanya user yang login yang bisa memesan.
- * 3. Menghitung total harga pesanan.
- * 4. Menyimpan data pesanan utama (termasuk catatan) ke tabel `orders`.
- * 5. Menyimpan setiap item produk dari keranjang ke tabel `order_items`.
- * 6. Mengirimkan kembali response JSON yang berisi status sukses dan pesan WhatsApp.
- */
-
 // Memulai sesi untuk mengakses data login pengguna
 session_start();
 
@@ -122,27 +109,29 @@ try {
     // Jika semua query berhasil, konfirmasi transaksi
     $db->commit();
 
-    // Membuat pesan WhatsApp untuk dikirim
-    $whatsappMessage = "🛍️ *Yarac Fashion Store - Pesanan Baru*\n\n";
-    $whatsappMessage .= "Nomor Pesanan: *#YRC" . $order_id . "*\n";
-    $whatsappMessage .= "Total: *Rp " . number_format($total_amount, 0, ',', '.') . "*\n\n";
-    $whatsappMessage .= "*Rincian Produk:*\n";
-    foreach ($cart as $item) {
-        $whatsappMessage .= "• " . htmlspecialchars($item['name']) . " (Ukuran: " . htmlspecialchars($item['size']) . ", Jml: " . $item['quantity'] . ")\n";
-    }
-    
-    // Menambahkan catatan ke pesan WhatsApp jika ada
-    if (!empty($notes)) {
-        $whatsappMessage .= "\n*Catatan Pelanggan:*\n" . htmlspecialchars($notes) . "\n";
-    }
+  // api/create_order.php
 
-    $whatsappMessage .= "\nTerima kasih telah berbelanja!";
+        // Membuat pesan WhatsApp dari sudut pandang PELANGGAN
+        $whatsappMessage = "Halo *Yarac Fashion Store*,\n\nSaya ingin mengonfirmasi pesanan saya dengan rincian berikut:\n\n";
+        $whatsappMessage .= "Nomor Pesanan: *#YRC" . $order_id . "*\n";
+        $whatsappMessage .= "Total Pembayaran: *Rp " . number_format($total_amount, 0, ',', '.') . "*\n\n";
+        $whatsappMessage .= "*Rincian Produk yang Dipesan:*\n";
+        foreach ($cart as $item) {
+            $whatsappMessage .= "• " . htmlspecialchars($item['name']) . " (Ukuran: " . htmlspecialchars($item['size']) . ", Jumlah: " . $item['quantity'] . ")\n";
+        }
+
+        // Menambahkan catatan dari pelanggan
+        if (!empty($notes)) {
+            $whatsappMessage .= "\n*Catatan dari Saya:*\n" . htmlspecialchars($notes) . "\n";
+        }
+
+        $whatsappMessage .= "\nMohon untuk segera diproses. Terima kasih!";
 
     // Mengirimkan respons sukses kembali ke JavaScript
     echo json_encode([
         'success' => true,
         'message' => 'Pesanan berhasil dibuat!',
-        'whatsappNumber' => '6281234567890', // Ganti dengan nomor WhatsApp Anda
+        'whatsappNumber' => '6282261134482', // Ganti dengan nomor WhatsApp 
         'whatsappMessage' => $whatsappMessage
     ]);
 

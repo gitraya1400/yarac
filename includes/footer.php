@@ -1101,6 +1101,5 @@
     <?php endif; ?>
 
     <!-- Chart.js for admin dashboard -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

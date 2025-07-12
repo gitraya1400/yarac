@@ -467,18 +467,30 @@ function loadCartFromStorage() {
 
 // Enhanced smooth scrolling
 function initializeSmoothScrolling() {
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  // Memilih semua link yang href-nya diawali dengan #, KECUALI yang href-nya HANYA #
+  document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
-      e.preventDefault()
-      const target = document.querySelector(this.getAttribute("href"))
-      if (target) {
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        })
+      e.preventDefault();
+      
+      const href = this.getAttribute("href");
+      
+      // Pengecekan tambahan untuk memastikan targetnya valid
+      if (href && href.length > 1) {
+        try {
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        } catch (err) {
+            // Menangani jika selector tetap tidak valid (meskipun seharusnya tidak terjadi)
+            console.error(`Smooth scroll failed: Invalid selector "${href}"`);
+        }
       }
-    })
-  })
+    });
+  });
 }
 
 // Enhanced scroll animations

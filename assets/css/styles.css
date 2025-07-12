@@ -1027,6 +1027,11 @@ h4 {
   font-size: 1.1rem;
   line-height: 1.6;
 }
+/* Letakkan di akhir file assets/css/styles.css */
+.category-card-link {
+    text-decoration: none;
+    color: inherit; /* Mewarisi warna teks dari parent */
+}
 
 /* Enhanced Newsletter - Removed rotation animation */
 .newsletter {
