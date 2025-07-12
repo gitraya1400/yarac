@@ -99,20 +99,26 @@ if (session_status() == PHP_SESSION_NONE) {
     </div>
     <?php endif; ?>
 
-    <div class="cart-dropdown" id="cart-dropdown">
-        <div class="cart-header">
-            <h3>Shopping Cart</h3>
-            <button class="close-cart" onclick="toggleCart()">&times;</button>
-        </div>
-        <div class="cart-items" id="cart-items">
-            <p class="empty-cart">Your cart is empty</p>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <strong>Total: <span id="cart-total">Rp 0</span></strong>
-            </div>
-            <button class="btn-checkout" onclick="checkout()">
-                <i class="fab fa-whatsapp"></i> Checkout via WhatsApp
-            </button>
-        </div>
+<div class="cart-dropdown" id="cart-dropdown">
+    <div class="cart-header">
+        <h3>Shopping Cart</h3>
+        <button class="close-cart" onclick="toggleCart()">&times;</button>
     </div>
+    <div class="cart-items" id="cart-items">
+        <p class="empty-cart">Your cart is empty</p>
+    </div>
+<div class="cart-footer">
+    <div class="cart-total">
+        <strong>Total: <span id="cart-total">Rp 0</span></strong>
+    </div>
+
+    <div class="cart-notes">
+        <label for="order-notes">Add a note</label>
+        <textarea id="order-notes" placeholder="e.g., color request, packaging..."></textarea>
+    </div>
+    
+    <button class="btn-checkout" onclick="checkout()">
+        <i class="fab fa-whatsapp"></i> Checkout via WhatsApp
+    </button>
+</div>
+</div>

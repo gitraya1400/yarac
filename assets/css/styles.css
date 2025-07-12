@@ -1810,3 +1810,50 @@ body.loading #loading-logo {
 body.loading #page-content {
  opacity: 0.5; /* Sedikit redup saat loading */
 }
+/* =================================================================== */
+/* FINAL STYLING - CATATAN KERANJANG BELANJA (CART NOTES)            */
+/* =================================================================== */
+
+.cart-notes {
+  /* Memberi ruang di dalam keranjang */
+  padding: 0 25px 20px;
+}
+
+.cart-notes label {
+  /* Memastikan label berada di baris sendiri (di atas textarea) */
+  display: block; 
+  font-weight: 600;
+  color: var(--forest-green);
+  font-size: 14px;
+  margin-bottom: 8px; /* Jarak antara label dan textarea */
+  font-family: "League Spartan", sans-serif;
+  text-align: left; /* Pastikan teks label rata kiri */
+}
+
+.cart-notes textarea {
+  /* Memastikan textarea memenuhi lebar kontainer */
+  width: 100%;
+  box-sizing: border-box; /* Mencegah padding & border merusak layout */
+  height: 70px;
+  padding: 12px 15px;
+  border: 2px solid rgba(43, 62, 52, 0.2);
+  border-radius: 12px;
+  resize: vertical;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: var(--dark-gray);
+  background-color: #fdfdfd;
+  outline: none;
+  transition: all var(--transition-medium);
+}
+
+.cart-notes textarea::placeholder {
+  color: var(--moss-green);
+  font-style: italic;
+}
+
+.cart-notes textarea:focus {
+  border-color: var(--olive-drab);
+  background-color: var(--white);
+  box-shadow: 0 0 0 3px rgba(84, 106, 80, 0.15);
+}

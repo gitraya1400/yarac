@@ -308,7 +308,6 @@ async function checkout() {
     showNotification("Keranjang Anda kosong.", "error");
     return;
   }
-
   const authBtn = document.getElementById("auth-btn");
   if (authBtn && authBtn.textContent.trim().toUpperCase() === "SIGN IN") {
     showNotification("Silakan login untuk melanjutkan checkout.", "warning");
@@ -320,18 +319,15 @@ async function checkout() {
   const originalButtonHTML = checkoutButton.innerHTML;
   checkoutButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
   checkoutButton.disabled = true;
+  const orderNotes = document.getElementById('order-notes').value;
+
 
   try {
-    // ---- [PERBAIKI BAGIAN INI] ----
-    // Ganti 'Yarac-store-Raya' dengan nama folder proyek Anda yang sebenarnya.
-    // Pastikan diawali dengan tanda '/'
- // ---- [FIXED] ----
-    // Path is now relative to the current page.
+
     const response = await fetch('api/create_order.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ cart: cart }),
-    });
+      body: JSON.stringify({ cart: cart, notes: orderNotes }),    });
     if (!response.ok) {
         // Jika statusnya 404 atau error server lainnya, tampilkan pesan.
         throw new Error(`Gagal menghubungi server (Error: ${response.status})`);

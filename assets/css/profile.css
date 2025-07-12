@@ -1,0 +1,159 @@
+/* ========================================= */
+/* CSS RAPI UNTUK HALAMAN PROFIL PENGGUNA    */
+/* ========================================= */
+
+.profile-page-container {
+    padding: 140px 20px 80px;
+    background-color: var(--light-gray); /* Latar belakang abu-abu muda */
+}
+
+.profile-page-layout {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start; /* Konten atas sejajar */
+}
+
+/* Sidebar Navigasi */
+.profile-sidebar {
+    flex: 0 0 280px; /* Lebar sidebar dibuat sedikit lebih besar */
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-medium);
+    height: fit-content;
+    position: sticky; /* Membuat sidebar tetap terlihat saat scroll */
+    top: 120px;
+}
+
+.profile-sidebar h4 {
+    font-size: 1.5rem;
+    color: var(--forest-green);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+.profile-nav a {
+    display: flex; /* Menggunakan flexbox untuk ikon dan teks */
+    align-items: center;
+    gap: 15px;
+    padding: 16px 20px;
+    color: var(--dark-gray);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    transition: all var(--transition-medium);
+    border: 2px solid transparent;
+}
+
+.profile-nav a:hover {
+    background-color: var(--light-gray);
+    color: var(--forest-green);
+}
+
+.profile-nav a.active {
+    background-color: var(--forest-green);
+    color: white;
+    border-color: var(--olive-drab);
+    transform: translateX(5px);
+}
+
+.profile-nav i {
+    width: 20px; /* Memberi ruang untuk ikon */
+    text-align: center;
+}
+
+/* Konten Utama */
+.profile-main-content {
+    flex-grow: 1;
+}
+
+.profile-content-section {
+    display: none;
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-medium);
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.profile-content-section.active {
+    display: block;
+}
+
+.profile-content-section h3 {
+    font-size: 2rem;
+    color: var(--forest-green);
+    margin-bottom: 30px;
+}
+
+/* Style untuk form yang lebih rapi */
+.auth-form {
+    max-width: 100%; /* Form mengisi kontainer */
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.form-group input:disabled {
+    background-color: #f5f5f5;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.btn-auth {
+    width: auto; /* Lebar tombol menyesuaikan konten */
+    padding: 15px 40px;
+    font-size: 1rem;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+/* Alert message styles */
+.alert {
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.alert-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
